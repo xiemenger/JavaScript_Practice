@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Section 2: JavaScript Language Basics</title>
+    </head>
+
+    <body>
+        <h1>Section 2: JavaScript Language Basics</h1>
+    </body>
+
+    <script src="script.js">
+    
+        const getIDs = new Promise((resolve, reject) => {
+            setTimeout(() =>{
+                resolve([12, 998, 102]);
+            }, 1500);
+        });
+
+        const getRecipe = recID => {
+            return new Promise((resolve, reject) => {
+                setTimeout( ID =>{
+                    const recipe = {title: 'Fresh potato',
+                                publisher: 'Jonas'};
+                    resolve('${ID}: ${recipe.title}');
+                }, 1500, recID);
+            });
+        }
+
+        const getRelated = publisher => {
+            return new Promise((resolve, reject) => {
+                setTimeout(pub => {
+                    const recipe = {title: 'Pizza', publiser: 'John'};
+                    resolve('${pub}:${recipe}');
+                }, 1500, publiser)
+            });
+        }
+
+        getIDs
+        .then(IDs => {
+            console.log(IDs);
+        })
+        .then(recipe => {
+            console.log(recipe.publisher);
+            return getRelated('Jonas');
+        })
+        .then(recipe =>{
+            console.log(recipe);
+        })
+        .catch(error => {
+            cosole.log(error);
+        })
+    </script>
+</html>
